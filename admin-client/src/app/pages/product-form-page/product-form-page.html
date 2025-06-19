@@ -28,8 +28,11 @@
       </label>
     </div>
 
-    <button type="submit">
-      {{ isEditMode ? 'Update product' : 'Add product' }}
-    </button>
+    <div class="form-actions">
+      <button type="submit">
+        {{ isEditMode ? 'Update product' : 'Add product' }}
+      </button>
+      <button type="button" (click)="onGoBack()">Go back</button>
+    </div>
   </form>
 </div>

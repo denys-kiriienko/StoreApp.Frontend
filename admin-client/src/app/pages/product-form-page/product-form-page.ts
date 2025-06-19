@@ -63,4 +63,8 @@ export class ProductFormPage implements OnInit {
       });
     }
   }
+
+  onGoBack() {
+    this.router.navigate(['/products']);
+  }
 }
