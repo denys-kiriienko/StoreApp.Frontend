@@ -16,4 +16,20 @@ export class ProductService {
   getAllProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}`, { withCredentials: true });
   }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`, { withCredentials: true });
+  }
+
+  addProduct(product: Product): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}`, product, { withCredentials: true });
+  }
+
+  updateProductById(id: number, product: Product): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${id}`, product, { withCredentials: true });
+  }
+
+  deleteProductById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { withCredentials: true });
+  }
 }
