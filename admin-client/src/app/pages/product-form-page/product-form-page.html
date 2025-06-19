@@ -1,0 +1,35 @@
+<div class="product-form-container">
+  <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="name-container">
+      <label>
+        Name:
+        <input formControlName="name" />
+      </label>
+    </div>
+
+    <div class="description-container">
+      <label>
+        Description:
+        <textarea formControlName="description"></textarea>
+      </label>
+    </div>
+
+    <div class="price-container">
+      <label>
+        Price:
+        <input type="number" formControlName="price" />
+      </label>
+    </div>
+
+    <div class="image-container">
+      <label>
+        Load image
+        <input formControlName="imageUrl" />
+      </label>
+    </div>
+
+    <button type="submit">
+      {{ isEditMode ? 'Update product' : 'Add product' }}
+    </button>
+  </form>
+</div>
