@@ -29,6 +29,10 @@ export class ProductListPage implements OnInit {
     })
   }
 
+  onAddProduct() {
+    this.router.navigate(['/products/new']);
+  }
+
   onProductSelected(product: Product): void {
     this.router.navigate(['/products/edit', product.id]);
   }

@@ -1,4 +1,7 @@
 <div class="product-list-container">
+  <button class="add-product-button" (click)="onAddProduct()">
+    Add Product
+  </button>
   <app-product-list
     [products]="products"
     (productClicked)="onProductSelected($event)"
