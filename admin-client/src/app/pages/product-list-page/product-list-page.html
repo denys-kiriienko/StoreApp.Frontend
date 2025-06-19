@@ -2,5 +2,6 @@
   <app-product-list
     [products]="products"
     (productClicked)="onProductSelected($event)"
+    (productDeleted)="onProductDelete($event)"
   ></app-product-list>
 </div>

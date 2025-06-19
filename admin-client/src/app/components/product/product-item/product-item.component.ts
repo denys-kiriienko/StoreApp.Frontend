@@ -8,11 +8,17 @@ import { Product } from '../../../models/product.model';
   styleUrl: './product-item.component.css'
 })
 export class ProductItemComponent {
-
+  
   @Input() product!: Product;
   @Output() editProductClicked = new EventEmitter<Product>();
-
+  @Output() deleteProductClicked = new EventEmitter<Product>();
+  
   onEditClick() {
     this.editProductClicked.emit(this.product);
+  }
+
+  onDeleteClick(event: MouseEvent): void {
+    event.stopPropagation();
+    this.deleteProductClicked.emit(this.product);
   }
 }

@@ -10,12 +10,16 @@ import { ProductItemComponent } from "../product-item/product-item.component";
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-
+  
   @Input() products: Product[] = [];
   @Output() productClicked = new EventEmitter<Product>();
-
+  @Output() productDeleted = new EventEmitter<Product>();
+  
   onProductClick(product: Product) {
     this.productClicked.emit(product);
   }
-
+  
+  onProductDelete(product: Product): void {
+    this.productDeleted.emit(product);
+  }
 }

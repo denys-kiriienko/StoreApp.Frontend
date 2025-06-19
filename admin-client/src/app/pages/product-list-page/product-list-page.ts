@@ -32,4 +32,18 @@ export class ProductListPage implements OnInit {
   onProductSelected(product: Product): void {
     this.router.navigate(['/products/edit', product.id]);
   }
+
+  onProductDelete(product: Product): void {
+    if (!confirm(`Delete product: "${product.name}"?`)) return;
+
+    this.productService.deleteProductById(product.id).subscribe({
+      next: (response) => {
+        this.products = this.products.filter(p => p.id !== product.id);
+        console.log('Product deleted successfully', response);
+      },
+      error: (error) => {
+        console.log('Error deleting product', error);
+      }
+    });
+  }
 }
