@@ -3,6 +3,7 @@ import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from '../../components/product/product-list/product-list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list-page',
@@ -14,7 +15,10 @@ export class ProductListPage implements OnInit {
   
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe({
@@ -25,4 +29,7 @@ export class ProductListPage implements OnInit {
     })
   }
 
+  onProductSelected(product: Product): void {
+    this.router.navigate(['/products/edit', product.id]);
+  }
 }

@@ -4,6 +4,7 @@
       class="product-item border"
       *ngFor="let product of products"
       [product]="product"
+      (editProductClicked)="onProductClick(product)"
     >
     </app-product-item>
   </div>

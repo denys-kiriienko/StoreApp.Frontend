@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../models/product.model';
 
 @Component({
@@ -10,5 +10,9 @@ import { Product } from '../../../models/product.model';
 export class ProductItemComponent {
 
   @Input() product!: Product;
+  @Output() editProductClicked = new EventEmitter<Product>();
 
+  onEditClick() {
+    this.editProductClicked.emit(this.product);
+  }
 }

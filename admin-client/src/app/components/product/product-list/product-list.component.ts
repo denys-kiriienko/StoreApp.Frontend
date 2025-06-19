@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../models/product.model';
 import { ProductItemComponent } from "../product-item/product-item.component";
 
@@ -12,5 +12,10 @@ import { ProductItemComponent } from "../product-item/product-item.component";
 export class ProductListComponent {
 
   @Input() products: Product[] = [];
+  @Output() productClicked = new EventEmitter<Product>();
+
+  onProductClick(product: Product) {
+    this.productClicked.emit(product);
+  }
 
 }
