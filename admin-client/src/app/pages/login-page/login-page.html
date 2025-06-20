@@ -1,24 +1,26 @@
-<div class="login-form-container">
-  <div class="center">
-    <h1>Welcome</h1>
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="email-container">
-        <input
-          id="email"
-          type="email"
-          placeholder="Email"
-          formControlName="email"
-        />
-      </div>
-      <div class="password-container">
-        <input
-          id="password"
-          type="password"
-          placeholder="Password"
-          formControlName="password"
-        />
-      </div>
-      <button type="submit" class="login-button">Login</button>
-    </form>
-  </div>
+<div class="login-form-container center">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1 class="title">Log in</h1>
+    <div class="email-container">
+      <label for="email" class="login-label">Email address</label>
+      <input
+        class="login-input"
+        id="email"
+        type="email"
+        placeholder="example@gmail.com"
+        formControlName="email"
+      />
+    </div>
+    <div class="password-container">
+      <label for="passowrd" class="login-label">Passowrd</label>
+      <input
+        class="login-input"
+        id="password"
+        type="password"
+        placeholder="Enter your password"
+        formControlName="password"
+      />
+    </div>
+    <button type="submit" class="login-button button-large">Login</button>
+  </form>
 </div>

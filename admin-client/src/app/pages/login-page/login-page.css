@@ -1,0 +1,39 @@
+.login-form-container {
+  margin-top: 100px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
+
+.login-form {
+  width: 350px;
+}
+
+.login-label {
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 5px;
+}
+
+.login-input {
+  margin-bottom: 10px;
+  height: 56px;
+  border-radius: 8px;
+}
+
+.login-button {
+  width: 100%;
+}
+
+.password-container {
+  margin-bottom: 30px;
+}
