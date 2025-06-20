@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class LoginPage {
  
   loginForm: FormGroup;
   
-  constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(4)])
@@ -26,6 +30,7 @@ export class LoginPage {
       this.authService.login(email, password).subscribe({
         next: (response) => {
           console.log('Login successful', response);
+          this.router.navigate(['/products']);
         },
         error: (error) => {
           console.error('Login failed', error);
