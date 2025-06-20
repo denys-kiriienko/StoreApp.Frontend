@@ -1,11 +1,9 @@
 <nav class="navbar">
-  <div class="navbar-brand">
-    <a class="navbar-item">
-      <span class="title">StoreApp Admin</span>
-    </a>
+  <div class="navbar-left">
+    <span class="navbar-title">StoreApp Admin</span>
   </div>
 
-  <div class="navbar-menu">
+  <div class="navbar-right">
     <ng-container *ngIf="isAuthenticated; else loginBtn">
       <a class="navbar-item" routerLink="/products">Products</a>
       <a class="navbar-item" (click)="onLogout()">Logout</a>
