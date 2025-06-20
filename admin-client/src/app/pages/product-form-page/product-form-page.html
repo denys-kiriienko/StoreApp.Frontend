@@ -22,6 +22,13 @@
     </div>
 
     <div class="image-container">
+      <div>
+        <img
+          *ngIf="productForm.value.imageData"
+          [src]="'data:image/png;base64,' + productForm.value.imageData"
+          class="product-image"
+        />
+      </div>
       <label>
         Load image
         <input type="file" (change)="onFileSelected($event)" />
