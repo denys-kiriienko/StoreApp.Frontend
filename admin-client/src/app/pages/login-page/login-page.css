@@ -37,3 +37,24 @@
 .password-container {
   margin-bottom: 30px;
 }
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  padding: 4px 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: gray;
+}
+
+.toggle-password-btn:hover {
+  color: #000;
+}

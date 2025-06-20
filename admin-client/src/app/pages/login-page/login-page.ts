@@ -13,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPage {
  
   loginForm: FormGroup;
+  showPassword = false;
   
   constructor(
     private authService: AuthService,
@@ -22,6 +23,10 @@ export class LoginPage {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(4)])
     });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
   
   onSubmit() {
