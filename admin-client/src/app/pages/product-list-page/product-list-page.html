@@ -1,7 +1,10 @@
 <div class="product-list-container">
-  <button class="add-product-button" (click)="onAddProduct()">
-    Add Product
-  </button>
+  <div class="product-list-header">
+    <h2>Products</h2>
+    <button class="add-product-button" (click)="onAddProduct()">
+      Add Product
+    </button>
+  </div>
   <app-product-list
     [products]="products"
     (productClicked)="onProductSelected($event)"

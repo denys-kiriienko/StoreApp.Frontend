@@ -1,5 +1,5 @@
 <div class="product-list-container">
-  <div *ngIf="products.length; else noProducts">
+  <div class="product-list" *ngIf="products.length; else noProducts">
     <app-product-item
       class="product-item border"
       *ngFor="let product of products"
