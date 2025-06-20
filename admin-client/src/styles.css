@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+input {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+input.error {
+  border-color: #ff4d4d;
+}
+
+.error-message {
+  font-size: 12px;
+  color: #ff4d4d;
+  margin: 4px 0 0;
+}
+
+textarea {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+textarea.error {
+  border-color: #ff4d4d;
+}
