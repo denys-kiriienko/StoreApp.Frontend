@@ -29,7 +29,7 @@ export class ProductFormPage implements OnInit {
       name: ['', Validators.required],
       description: [''],
       price: [0, [Validators.required, Validators.min(0.01)]],
-      imageUrl: ['']
+      imageData: [null]
     });
 
     this.route.paramMap.subscribe(params => {
@@ -46,6 +46,19 @@ export class ProductFormPage implements OnInit {
     this.productService.getProductById(id).subscribe(product => {
       this.productForm.patchValue(product);
     });
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = (reader.result as string).split(',')[1];
+        this.productForm.patchValue({ imageData: base64 });
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   onSubmit(): void {

@@ -1,0 +1,11 @@
+.product-image {
+  max-width: 500px;;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

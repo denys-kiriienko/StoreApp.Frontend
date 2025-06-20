@@ -24,7 +24,7 @@
     <div class="image-container">
       <label>
         Load image
-        <input formControlName="imageUrl" />
+        <input type="file" (change)="onFileSelected($event)" />
       </label>
     </div>
 
