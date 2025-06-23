@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
+import { FileInputComponent } from "../../components/file-input/file-input.component";
 
 @Component({
   selector: 'app-product-form-page',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FileInputComponent],
   templateUrl: './product-form-page.html',
   styleUrl: './product-form-page.css'
 })
@@ -48,17 +49,13 @@ export class ProductFormPage implements OnInit {
     });
   }
 
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = (reader.result as string).split(',')[1];
-        this.productForm.patchValue({ imageData: base64 });
-      };
-      reader.readAsDataURL(file);
-    }
+  onFileSelected(file: File): void {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = (reader.result as string).split(',')[1];
+      this.productForm.patchValue({ imageData: base64 });
+    };
+    reader.readAsDataURL(file);
   }
 
   onSubmit(): void {

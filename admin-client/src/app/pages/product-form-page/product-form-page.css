@@ -19,11 +19,11 @@
 .form-actions {
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
 }
 
 .product-image {
   max-width: 350px;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 15px;
 }

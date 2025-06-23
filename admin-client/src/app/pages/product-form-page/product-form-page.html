@@ -24,8 +24,12 @@
         [src]="'data:image/png;base64,' + productForm.value.imageData"
         class="product-image"
       />
-      <label class="input-label">Load image</label>
-      <input type="file" (change)="onFileSelected($event)" />
+      <app-file-input
+        class="full-width"
+        [buttonText]="'Load image'"
+        (fileSelected)="onFileSelected($event)"
+      >
+      </app-file-input>
     </div>
 
     <div class="form-field form-actions">
