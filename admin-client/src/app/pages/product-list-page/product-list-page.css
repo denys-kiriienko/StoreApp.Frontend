@@ -11,3 +11,8 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+}

@@ -4,16 +4,18 @@ import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from '../../components/product/product-list/product-list.component';
 import { Router } from '@angular/router';
+import { LoadingSpinnerComponent } from "../../components/loading-spinner/loading-spinner.component";
 
 @Component({
   selector: 'app-product-list-page',
-  imports: [CommonModule, ProductListComponent],
+  imports: [CommonModule, ProductListComponent, LoadingSpinnerComponent],
   templateUrl: './product-list-page.html',
   styleUrl: './product-list-page.css'
 })
 export class ProductListPage implements OnInit {
   
   products: Product[] = [];
+  isLoading: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -21,10 +23,16 @@ export class ProductListPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.productService.getAllProducts().subscribe({
       next: (response) => {
         console.log('Products fetched successfully', response);
         this.products = response;
+      }, error: (error) => {
+        console.log('Error fetching products', error);
+      },
+      complete: () => {
+        this.isLoading = false;
       }
     })
   }
