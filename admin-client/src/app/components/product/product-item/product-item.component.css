@@ -8,7 +8,13 @@
 }
 
 .product-details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

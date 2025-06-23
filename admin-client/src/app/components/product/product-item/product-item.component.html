@@ -1,4 +1,4 @@
-<div class="product-item" (click)="onEditClick()">
+<div class="product-item">
   <div>
     <img
       *ngIf="product.imageData"
@@ -10,6 +10,9 @@
     <h3>{{ product.name }}</h3>
     <p>{{ product.description }}</p>
     <p>Price: {{ product.price }}</p>
-    <button (click)="onDeleteClick($event)">Delete</button>
+    <div class="product-actions">
+      <button (click)="onEditClick($event)">Edit</button>
+      <button (click)="onDeleteClick($event)">Delete</button>
+    </div>
   </div>
 </div>

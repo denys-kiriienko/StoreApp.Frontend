@@ -14,12 +14,11 @@ export class ProductItemComponent {
   @Output() editProductClicked = new EventEmitter<Product>();
   @Output() deleteProductClicked = new EventEmitter<Product>();
   
-  onEditClick() {
+  onEditClick(event: Event): void {
     this.editProductClicked.emit(this.product);
   }
 
-  onDeleteClick(event: MouseEvent): void {
-    event.stopPropagation();
+  onDeleteClick(event: Event): void {
     this.deleteProductClicked.emit(this.product);
   }
 }

@@ -17,6 +17,7 @@
   padding: 16px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  background-color: #ececec;
   transition: box-shadow 0.2s ease;
 }
 
