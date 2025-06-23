@@ -1,24 +1,18 @@
 <div class="product-form-container">
   <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div class="name-container">
-      <label>
-        Name:
-        <input formControlName="name" />
-      </label>
+      <label class="input-label">Name</label>
+      <input formControlName="name" />
     </div>
 
     <div class="description-container">
-      <label>
-        Description:
-        <textarea formControlName="description"></textarea>
-      </label>
+      <label class="input-label">Description</label>
+      <textarea formControlName="description"></textarea>
     </div>
 
     <div class="price-container">
-      <label>
-        Price:
-        <input type="number" formControlName="price" />
-      </label>
+      <label class="input-label">Price</label>
+      <input type="number" formControlName="price" />
     </div>
 
     <div class="image-container">
@@ -29,10 +23,8 @@
           class="product-image"
         />
       </div>
-      <label>
-        Load image
-        <input type="file" (change)="onFileSelected($event)" />
-      </label>
+      <label class="input-label">Load image</label>
+      <input type="file" (change)="onFileSelected($event)" />
     </div>
 
     <div class="form-actions">

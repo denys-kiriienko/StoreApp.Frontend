@@ -1,5 +1,12 @@
+.product-form-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .product-image {
-  max-width: 500px;;
+  max-width: 350px;
   height: auto;
   border-radius: 8px;
 }

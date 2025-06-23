@@ -21,12 +21,6 @@
   background-color: lightgray;
 }
 
-.login-label {
-  display: block;
-  margin-bottom: 3px;
-  padding-left: 5px;
-}
-
 .login-input {
   margin-bottom: 10px;
   height: 56px;
