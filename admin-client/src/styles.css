@@ -43,6 +43,11 @@ input.error {
   border-color: #ff4d4d;
 }
 
+.input-error {
+  color: red;
+  font-size: small;
+}
+
 .error-message {
   font-size: 12px;
   color: #ff4d4d;

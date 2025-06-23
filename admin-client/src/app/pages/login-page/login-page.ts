@@ -42,6 +42,7 @@ export class LoginPage {
         }
       });
     } else {
+      this.loginForm.markAllAsTouched();
       console.warn('Form is invalid');
     }
   }

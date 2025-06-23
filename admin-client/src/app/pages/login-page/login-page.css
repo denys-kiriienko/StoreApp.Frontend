@@ -22,13 +22,16 @@
 }
 
 .login-input {
-  margin-bottom: 10px;
   height: 56px;
   border-radius: 8px;
 }
 
 .login-button {
   width: 100%;
+}
+
+.email-container {
+  margin-bottom: 15px;
 }
 
 .password-container {
