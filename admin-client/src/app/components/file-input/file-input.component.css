@@ -5,6 +5,7 @@
   cursor: pointer;
   background: #339b6a;
   color: #fff;
+  transition: background 0.2s;
 }
 
 .file-label:hover {
