@@ -1,36 +1,35 @@
 <div class="product-form-container">
+  <div class="product-form-header">
+    <h2>{{ isEditMode ? 'Edit' : 'Add' }} product</h2>
+  </div>
   <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div class="name-container">
+    <div class="form-field name-container">
       <label class="input-label">Name</label>
       <input formControlName="name" />
     </div>
 
-    <div class="description-container">
+    <div class="form-field description-container">
       <label class="input-label">Description</label>
       <textarea formControlName="description"></textarea>
     </div>
 
-    <div class="price-container">
+    <div class="form-field price-container">
       <label class="input-label">Price</label>
       <input type="number" formControlName="price" />
     </div>
 
-    <div class="image-container">
-      <div>
-        <img
-          *ngIf="productForm.value.imageData"
-          [src]="'data:image/png;base64,' + productForm.value.imageData"
-          class="product-image"
-        />
-      </div>
+    <div class="form-field image-container">
+      <img
+        *ngIf="productForm.value.imageData"
+        [src]="'data:image/png;base64,' + productForm.value.imageData"
+        class="product-image"
+      />
       <label class="input-label">Load image</label>
       <input type="file" (change)="onFileSelected($event)" />
     </div>
 
-    <div class="form-actions">
-      <button type="submit">
-        {{ isEditMode ? 'Update product' : 'Add product' }}
-      </button>
+    <div class="form-field form-actions">
+      <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} product</button>
       <button type="button" (click)="onGoBack()">Go back</button>
     </div>
   </form>

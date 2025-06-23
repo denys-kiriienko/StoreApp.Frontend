@@ -5,6 +5,23 @@
   align-items: center;
 }
 
+.product-form {
+  width: 350px;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: lightgray;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
 .product-image {
   max-width: 350px;
   height: auto;
