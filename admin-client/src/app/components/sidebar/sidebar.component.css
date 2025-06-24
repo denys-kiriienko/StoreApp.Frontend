@@ -93,3 +93,10 @@
 .dropdown-item:hover {
   background-color: #666;
 }
+
+.sidebar-button:active,
+.dropdown-item:active,
+.main-button:active {
+  transform: none;
+}
+
