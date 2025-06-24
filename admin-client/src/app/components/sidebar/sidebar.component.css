@@ -6,7 +6,7 @@
   height: calc(100vh - 60px);
   background-color: #333;
   color: white;
-  transition: width 0.2s ease;
+  transition: width 0.3s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@
 .dropdown-menu-wrapper {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.2s ease;
+  transition: max-height 0.3s ease;
 }
 
 .dropdown-menu-wrapper.open {
@@ -103,4 +103,10 @@
 .dropdown-item:active,
 .sidebar-toggle-button:active {
   transform: none;
+}
+
+.dropdown-item,
+.label {
+  white-space: nowrap;
+  overflow: hidden;
 }
