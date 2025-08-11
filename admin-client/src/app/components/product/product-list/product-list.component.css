@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px;
+  color: var(--fg);
 }
 
 .product-list {
@@ -10,17 +11,4 @@
   gap: 20px;
 }
 
-.product-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #ececec;
-  transition: box-shadow 0.2s ease;
-}
-
-.product-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
+/* host-element <app-product-item> now styles itself via :host in its own CSS */

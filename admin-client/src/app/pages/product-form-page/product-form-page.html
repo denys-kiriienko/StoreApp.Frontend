@@ -20,8 +20,10 @@
 
     <div class="form-field image-container">
       <img
-        *ngIf="productForm.value.imageData"
-        [src]="'data:image/png;base64,' + productForm.value.imageData"
+        *ngIf="productForm.value.imageData || productForm.value.imageUrl"
+        [src]="productForm.value.imageData
+              ? 'data:image/png;base64,' + productForm.value.imageData
+              : baseUrl + productForm.value.imageUrl"
         class="product-image"
       />
       <app-file-input

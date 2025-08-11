@@ -1,12 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --bg: #ffffff;
+  --fg: #101418;
+  --surface: #f5f7fa;
+  --primary: #2b6cb0;
+  --muted: #737a86;
+  --border: color-mix(in oklab, var(--fg) 12%, transparent);
+
+  /* Sidebar */
+  --sidebar: var(--surface);
+  --sidebar-contrast: var(--fg);
+  --sidebar-border: var(--border);
+  --sidebar-button: color-mix(in oklab, var(--fg) 7%, transparent);
+  --sidebar-button-hover: color-mix(in oklab, var(--fg) 12%, transparent);
+  --sidebar-dropdown: color-mix(in oklab, var(--fg) 10%, transparent);
+
+  /* Icons */
+  --icon-filter: none;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --fg: #e6eaf2;
+  --surface: #161b22;
+  --primary: #63b3ed;
+  --muted: #a4acb9;
+  --border: color-mix(in oklab, var(--fg) 18%, transparent);
+
+  /* Sidebar */
+  --sidebar: #0e131a;
+  --sidebar-contrast: var(--fg);
+  --sidebar-border: var(--border);
+  --sidebar-button: color-mix(in oklab, var(--fg) 8%, transparent);
+  --sidebar-button-hover: color-mix(in oklab, var(--fg) 16%, transparent);
+  --sidebar-dropdown: color-mix(in oklab, var(--fg) 12%, transparent);
+
+  /* Icons */
+  --icon-filter: invert(1) brightness(1.1);
+}
+
 html, body {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
+  color: var(--fg);
+  background: var(--bg);
   overflow-x: hidden;
 }
 
@@ -55,13 +96,13 @@ app-navbar {
   display: block;
   padding-left: 10px;
   font-size: 14px;
-  color: #333;
+  color: var(--muted);
 }
 
 input {
   padding: 8px 12px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   font-size: 14px;
   display: block;
   width: 100%;
@@ -71,7 +112,7 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary);
 }
 
 input:invalid {
@@ -96,7 +137,7 @@ input.error {
 textarea {
   padding: 8px 12px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   font-size: 14px;
   font-family: Arial, sans-serif;
   resize: vertical;
@@ -107,7 +148,7 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: var(--primary);
 }
 
 textarea.error {
@@ -119,13 +160,13 @@ button {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  background-color: #0048d9;
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--bg);
   transition: background 0.2s;
 }
 
 button:hover {
-  background-color: #002266;
+  filter: brightness(1.05);
 }
 
 button:disabled {
@@ -150,13 +191,13 @@ button:active {
 }
 
 .button-outlined {
-  background: #fff;
-  color: #0048d9;
-  border: 2px solid #0048d9;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .button-outlined:hover {
-  background: #f0f4ff;
-  color: #002266;
-  border-color: #002266;
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--fg);
+  border-color: var(--primary);
 }

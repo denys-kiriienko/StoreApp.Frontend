@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,8 @@ export class NavbarComponent {
 
   constructor(
     private readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly themeService: ThemeService
   ) {
     this.authService.isAuthenticated$.subscribe(auth => {
       this.isAuthenticated = auth;
@@ -28,5 +30,9 @@ export class NavbarComponent {
         this.router.navigate(['/login']);
       }
     });
+  }
+
+  onToggleTheme(): void {
+    this.themeService.toggleTheme();
   }
 }

@@ -1,8 +1,8 @@
 <div class="product-item">
   <div>
     <img
-      *ngIf="product.imageData"
-      [src]="'data:image/png;base64,' + product.imageData"
+      *ngIf="product.imageUrl"
+      [src]="baseUrl + product.imageUrl"
       class="product-image"
     />
   </div>

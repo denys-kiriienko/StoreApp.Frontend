@@ -3,7 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgb(155, 155, 155);
+  background: var(--surface);
+  color: var(--fg);
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar-right {
@@ -13,9 +15,9 @@
 
 .navbar-item {
   padding: 8px 12px;
-  background: rgb(104, 104, 104);
-  border: none;
-  color: white;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
   cursor: pointer;
   text-decoration: none;
   border-radius: 4px;
@@ -23,6 +25,6 @@
 }
 
 .navbar-item:hover {
-  background: #bebebe;
-  color: #333;
+  background: color-mix(in oklab, var(--fg) 8%, transparent);
+  color: var(--fg);
 }

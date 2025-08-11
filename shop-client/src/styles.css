@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global theme variables */
+:root {
+  --bg: #ffffff;
+  --fg: #101418;
+  --surface: #f5f7fa;
+  --primary: #2b6cb0;
+  --muted: #737a86;
+  --border: color-mix(in oklab, var(--fg) 12%, transparent);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f1115;
+  --fg: #e6eaf2;
+  --surface: #161b22;
+  --primary: #63b3ed;
+  --muted: #a4acb9;
+  --border: color-mix(in oklab, var(--fg) 18%, transparent);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--bg);
+  overflow-x: hidden;
+}

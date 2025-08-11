@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
 import { FileInputComponent } from "../../components/file-input/file-input.component";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-product-form-page',
@@ -14,6 +15,7 @@ import { FileInputComponent } from "../../components/file-input/file-input.compo
 })
 export class ProductFormPage implements OnInit {
 
+  baseUrl = environment.baseUrl;
   productForm!: FormGroup;
   isEditMode = false;
   productId?: number;

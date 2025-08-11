@@ -1,5 +1,6 @@
 .login-form-container {
   margin-top: 100px;
+  color: var(--fg);
 }
 
 .center {
@@ -18,7 +19,9 @@
   width: 350px;
   border-radius: 8px;
   padding: 20px;
-  background-color: lightgray;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--fg);
 }
 
 .login-input {
@@ -52,9 +55,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: gray;
+  color: var(--muted);
 }
 
 .toggle-password-btn:hover {
-  color: #000;
+  color: var(--fg);
 }
