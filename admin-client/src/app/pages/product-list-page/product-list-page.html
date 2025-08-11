@@ -14,4 +14,12 @@
     class="loading-spinner"
     *ngIf="isLoading"
   ></app-loading-spinner>
+
+  <app-pagination
+    [totalItems]="totalCount"
+    [pageSize]="pageSize"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+    (pageSizeChange)="onPageSizeChange($event)"
+  ></app-pagination>
 </div>

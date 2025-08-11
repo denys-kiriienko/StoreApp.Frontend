@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Product } from '../models/product.model';
 import { Observable } from 'rxjs';
 import { PagedResult } from '../models/pagedResultT';
@@ -19,7 +19,17 @@ export class ProductService {
   }
 
   getPagedProducts(page: number, pageSize: number): Observable<PagedResult<Product>> {
-    return this.http.get<PagedResult<Product>>(`${this.apiUrl}/paged?page=${page}&pageSize=${pageSize}`, { withCredentials: true });
+    const pageZeroBased = Math.max(0, page - 1);
+    const params = new HttpParams()
+      .set('page', String(page))
+      .set('pageNumber', String(page))
+      .set('pageIndex', String(pageZeroBased))
+      .set('pageSize', String(pageSize));
+
+    return this.http.get<PagedResult<Product>>(`${this.apiUrl}/paged`, {
+      params,
+      withCredentials: true
+    });
   }
 
   getProductById(id: number): Observable<Product> {

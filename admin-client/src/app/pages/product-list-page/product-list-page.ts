@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from '../../components/product/product-list/product-list.component';
 import { Router } from '@angular/router';
 import { LoadingSpinnerComponent } from "../../components/loading-spinner/loading-spinner.component";
+import { PaginationComponent } from "../../components/pagination/pagination.component";
 
 @Component({
   selector: 'app-product-list-page',
-  imports: [CommonModule, ProductListComponent, LoadingSpinnerComponent],
+  imports: [CommonModule, ProductListComponent, LoadingSpinnerComponent, PaginationComponent],
   templateUrl: './product-list-page.html',
   styleUrl: './product-list-page.css'
 })
@@ -16,6 +17,9 @@ export class ProductListPage implements OnInit {
   
   products: Product[] = [];
   isLoading: boolean = false;
+  currentPage: number = 1;
+  pageSize: number = 10;
+  totalCount: number = 0;
 
   constructor(
     private productService: ProductService,
@@ -23,18 +27,23 @@ export class ProductListPage implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadPage();
+  }
+
+  private loadPage(): void {
     this.isLoading = true;
-    this.productService.getAllProducts().subscribe({
+    this.productService.getPagedProducts(this.currentPage, this.pageSize).subscribe({
       next: (response) => {
-        console.log('Products fetched successfully', response);
-        this.products = response;
-      }, error: (error) => {
+        this.products = response.items;
+        this.totalCount = response.totalCount;
+      },
+      error: (error) => {
         console.log('Error fetching products', error);
       },
       complete: () => {
         this.isLoading = false;
       }
-    })
+    });
   }
 
   onAddProduct() {
@@ -50,12 +59,28 @@ export class ProductListPage implements OnInit {
 
     this.productService.deleteProductById(product.id).subscribe({
       next: (response) => {
-        this.products = this.products.filter(p => p.id !== product.id);
-        console.log('Product deleted successfully', response);
+        // After deletion, reload the page and adjust current page if needed
+        this.totalCount = Math.max(0, this.totalCount - 1);
+        const lastPage = Math.max(1, Math.ceil(this.totalCount / this.pageSize));
+        if (this.currentPage > lastPage) {
+          this.currentPage = lastPage;
+        }
+        this.loadPage();
       },
       error: (error) => {
         console.log('Error deleting product', error);
       }
     });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadPage();
+  }
+
+  onPageSizeChange(size: number): void {
+    this.pageSize = size;
+    this.currentPage = 1;
+    this.loadPage();
   }
 }
